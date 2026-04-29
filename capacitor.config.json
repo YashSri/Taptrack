@@ -1,0 +1,6 @@
+{
+  "appId": "com.taptrack.app",
+  "appName": "TapTrack",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

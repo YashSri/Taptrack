@@ -1,0 +1,134 @@
+@config "../tailwind.config.js";
+@import "tailwindcss";
+
+@keyframes backgroundDrift {
+  0% {
+    background-position:
+      0% 0%,
+      100% 18%,
+      52% 100%,
+      50% 50%;
+  }
+
+  50% {
+    background-position:
+      8% 4%,
+      92% 24%,
+      48% 92%,
+      50% 50%;
+  }
+
+  100% {
+    background-position:
+      14% 10%,
+      84% 30%,
+      44% 86%,
+      50% 50%;
+  }
+}
+
+@layer base {
+  :root {
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    color-scheme: dark;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #030817;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Helvetica, Arial, sans-serif;
+    background:
+      radial-gradient(circle at top left, rgba(96, 165, 250, 0.28), transparent 30%),
+      radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.18), transparent 24%),
+      radial-gradient(circle at bottom center, rgba(191, 219, 254, 0.14), transparent 32%),
+      linear-gradient(135deg, #020617 0%, #07142f 24%, #0a1f44 58%, #1e3a8a 100%);
+    background-size: 130% 130%, 130% 130%, 140% 140%, 100% 100%;
+    animation: backgroundDrift 30s ease-in-out infinite alternate;
+    color: #eff6ff;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 140px 140px;
+    mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+    opacity: 0.18;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at var(--pointer-x) var(--pointer-y),
+        rgba(96, 165, 250, 0.24),
+        rgba(59, 130, 246, 0.14) 16%,
+        rgba(14, 165, 233, 0.08) 26%,
+        transparent 40%
+      );
+    opacity: 0.95;
+    transition:
+      background-position 260ms ease-out,
+      opacity 260ms ease-out;
+    mix-blend-mode: screen;
+  }
+
+  button,
+  a,
+  input {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      border-color 220ms ease,
+      background-color 220ms ease,
+      color 220ms ease,
+      opacity 220ms ease;
+  }
+
+  ::selection {
+    background-color: rgba(147, 197, 253, 0.28);
+    color: #ffffff;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.08)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow:
+      0 18px 60px rgba(2, 6, 23, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+}

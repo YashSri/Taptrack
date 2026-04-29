@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TapTrack</string>
+    <string name="title_activity_main">TapTrack</string>
+    <string name="package_name">com.taptrack.app</string>
+    <string name="custom_url_scheme">com.taptrack.app</string>
+</resources>
